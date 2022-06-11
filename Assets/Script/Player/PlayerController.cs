@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     public float moveSpeed;
     public Rigidbody2D TheRB;
     public Transform gunfire;
@@ -15,6 +17,12 @@ public class PlayerController : MonoBehaviour
     private float shotCounter;
     private Vector2 moveInput;
     private Camera theCam;
+
+
+    private void Awake()
+    {
+        instance = this;    
+    }
 
     void Start()
     {
