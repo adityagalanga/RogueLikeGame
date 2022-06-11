@@ -8,7 +8,11 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D TheRB;
     public Transform gunfire;
     public Animator anim;
+    public GameObject bulletToFire;
+    public Transform firePoint;
+    public float timeBetweenShots;
 
+    private float shotCounter;
     private Vector2 moveInput;
     private Camera theCam;
 
@@ -19,12 +23,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //move character
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
         moveInput.Normalize();
 
         TheRB.velocity = moveInput * moveSpeed;
-
+        
+        
+        //rotate character
         Vector3 mousePos = Input.mousePosition;
         Vector3 screenPoint = theCam.WorldToScreenPoint(transform.localPosition);
 
@@ -50,6 +57,24 @@ public class PlayerController : MonoBehaviour
         else
         {
             anim.SetBool("isMoving", false);
+        }
+
+        //shooting
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
+            shotCounter = timeBetweenShots;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            shotCounter -= Time.deltaTime;
+
+            if(shotCounter <= 0)
+            {
+                Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
+                shotCounter = timeBetweenShots;
+            }
         }
     }
 }

@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 331319608}
   - component: {fileID: 331319607}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BoxObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,6 +316,9 @@ MonoBehaviour:
   TheRB: {fileID: 450975446}
   gunfire: {fileID: 1619383779}
   anim: {fileID: 450975447}
+  bulletToFire: {fileID: 1734392524486587461, guid: 2cba92ac07fa33c499930d8a8a847f75, type: 3}
+  firePoint: {fileID: 2014110032}
+  timeBetweenShots: 0.2
 --- !u!58 &450975445
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -329,9 +332,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.39}
+  m_Offset: {x: 0, y: -0.33}
   serializedVersion: 2
-  m_Radius: 0.38
+  m_Radius: 0.32
 --- !u!50 &450975446
 Rigidbody2D:
   serializedVersion: 4
@@ -564,7 +567,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.062, y: -0.158, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2014110032}
   m_Father: {fileID: 450975443}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -701,3 +705,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2014110031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2014110032}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2014110032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014110031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.045, y: 0.381, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1619383779}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
