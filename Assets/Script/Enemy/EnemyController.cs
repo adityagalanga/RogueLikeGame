@@ -13,7 +13,16 @@ public class EnemyController : MonoBehaviour
 
     public GameObject[] deathSplatters;
     public GameObject hitEffect;
+    
+    public bool shouldShoot;
+    public GameObject bullet;
+    public Transform firePoint;
+    public float fireRate;
+    public float shootRange;
 
+    public SpriteRenderer theBody;
+
+    private float fireCounter;
     private Vector3 moveDirection;
     void Start()
     {
@@ -22,14 +31,32 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if(Vector3.Distance(transform.position,PlayerController.instance.transform.position) < rangeToChasePlayer)
+        if (theBody.isVisible)
         {
-            moveDirection = PlayerController.instance.transform.position - transform.position;
+            if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < rangeToChasePlayer)
+            {
+                moveDirection = PlayerController.instance.transform.position - transform.position;
+            }
+            else
+            {
+                moveDirection = Vector3.zero;
+            }
+
+            moveDirection.Normalize();
+            theRB.velocity = moveDirection * moveSpeed;
+
+            if (shouldShoot && Vector3.Distance(transform.position, PlayerController.instance.transform.position) < shootRange)
+            {
+                fireCounter -= Time.deltaTime;
+                if (fireCounter <= 0)
+                {
+                    fireCounter = fireRate;
+                    Instantiate(bullet, firePoint.position, firePoint.rotation);
+                }
+
+            }
         }
-        else
-        {
-            moveDirection = Vector3.zero;
-        }
+
 
         if (moveDirection != Vector3.zero)
         {
@@ -39,9 +66,6 @@ public class EnemyController : MonoBehaviour
         {
             anim.SetBool("isMoving", false);
         }
-
-        moveDirection.Normalize();
-        theRB.velocity = moveDirection * moveSpeed;
     }
 
     public void DamageEnemy(int damage)
