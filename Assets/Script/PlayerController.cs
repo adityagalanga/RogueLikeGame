@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
-    private Vector2 moveInput;
     public Rigidbody2D TheRB;
     public Transform gunfire;
+    public Animator anim;
+
+    private Vector2 moveInput;
     private Camera theCam;
 
     void Start()
@@ -19,8 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
-
-        //transform.position += new Vector3(moveInput.x * Time.deltaTime * moveSpeed, moveInput.y * Time.deltaTime * moveSpeed, 0f);
+        moveInput.Normalize();
 
         TheRB.velocity = moveInput * moveSpeed;
 
@@ -41,5 +42,14 @@ public class PlayerController : MonoBehaviour
         Vector2 offset = new Vector2(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
         float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
         gunfire.rotation = Quaternion.Euler(0,0,angle);
+
+        if(moveInput != Vector2.zero)
+        {
+            anim.SetBool("isMoving", true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
     }
 }
