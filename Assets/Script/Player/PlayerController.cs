@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletToFire;
     public Transform firePoint;
     public float timeBetweenShots;
+    public SpriteRenderer bodySprite;
 
     private float shotCounter;
     private Vector2 moveInput;
