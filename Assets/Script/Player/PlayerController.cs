@@ -15,14 +15,24 @@ public class PlayerController : MonoBehaviour
     public float timeBetweenShots;
     public SpriteRenderer bodySprite;
 
+    public float dashSpeed = 8f;
+    public float dashLength = .5f;
+    public float dashCooldown = 1f;
+    public float dashInvis = 0.5f;
+    [HideInInspector] public float dashCounter;
+
     private float shotCounter;
     private Vector2 moveInput;
     private Camera theCam;
+    
+    private float activeMoveSpeed;
+    private float dashCoolCounter;
 
 
     private void Awake()
     {
-        instance = this;    
+        instance = this;
+        activeMoveSpeed = moveSpeed;
     }
 
     void Start()
@@ -37,9 +47,9 @@ public class PlayerController : MonoBehaviour
         moveInput.y = Input.GetAxisRaw("Vertical");
         moveInput.Normalize();
 
-        TheRB.velocity = moveInput * moveSpeed;
-        
-        
+        TheRB.velocity = moveInput * activeMoveSpeed;
+
+
         //rotate character
         Vector3 mousePos = Input.mousePosition;
         Vector3 screenPoint = theCam.WorldToScreenPoint(transform.localPosition);
@@ -57,9 +67,9 @@ public class PlayerController : MonoBehaviour
 
         Vector2 offset = new Vector2(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
         float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
-        gunfire.rotation = Quaternion.Euler(0,0,angle);
+        gunfire.rotation = Quaternion.Euler(0, 0, angle);
 
-        if(moveInput != Vector2.zero)
+        if (moveInput != Vector2.zero)
         {
             anim.SetBool("isMoving", true);
         }
@@ -79,11 +89,36 @@ public class PlayerController : MonoBehaviour
         {
             shotCounter -= Time.deltaTime;
 
-            if(shotCounter <= 0)
+            if (shotCounter <= 0)
             {
                 Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
                 shotCounter = timeBetweenShots;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if(dashCoolCounter <= 0 && dashCounter <= 0)
+            {
+                activeMoveSpeed = dashSpeed;
+                dashCounter = dashLength;
+                anim.SetTrigger("dash");
+                PlayerHealthController.instance.MakeInvicible(dashInvis);
+            }
+        }
+
+        if (dashCounter > 0)
+        {
+            dashCounter -= Time.deltaTime;
+            if(dashCounter <= 0)
+            {
+                activeMoveSpeed = moveSpeed;
+                dashCoolCounter = dashCooldown;
+            }
+        }
+        if(dashCoolCounter > 0)
+        {
+            dashCoolCounter -= Time.deltaTime;
         }
     }
 }
