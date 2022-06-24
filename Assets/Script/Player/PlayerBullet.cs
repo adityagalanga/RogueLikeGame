@@ -27,6 +27,7 @@ public class PlayerBullet : MonoBehaviour
         }
 
         Instantiate(impactEffect, transform.position, transform.rotation);
+        AudioManager.instance.PlaySFX(4);
         Destroy(gameObject);
     }
 

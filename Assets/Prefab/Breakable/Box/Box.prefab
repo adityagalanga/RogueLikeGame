@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 787556941528253125}
   - component: {fileID: 787556941528253120}
   - component: {fileID: 787556941528253122}
-  m_Layer: 0
+  - component: {fileID: 2906585220148372635}
+  m_Layer: 10
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,6 +54,11 @@ MonoBehaviour:
   - {fileID: 7259005841089712418, guid: 377dfc364316fe243a7f65ede83a0936, type: 3}
   - {fileID: 8758531442672896765, guid: e6c993b4fa97fc642ac4575e9526539a, type: 3}
   maxPieces: 5
+  shouldDropItem: 1
+  itemDropPercent: 100
+  itemsToDrop:
+  - {fileID: 6015230950275218364, guid: 6ea9d0004cb9538428930406bcd7447e, type: 3}
+  - {fileID: 4111145239493056841, guid: 7c3ce07489a8de64a975a23fb7e3db5a, type: 3}
 --- !u!212 &787556941528253120
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -130,3 +136,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8125, y: 0.6361867}
   m_EdgeRadius: 0
+--- !u!114 &2906585220148372635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787556941528253121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad5ad34f9ef141c4095a5f1d11ebb4ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TheSR: {fileID: 787556941528253120}
