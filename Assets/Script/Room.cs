@@ -5,35 +5,24 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public bool closeWhenEntered;
-    public bool openWhenEnemiesCleared;
 
     public List<GameObject> enemies = new List<GameObject>();
     public GameObject[] doors;
 
-    private bool roomActive;
+    public bool roomActive;
 
     private void Update()
     {
-        if(enemies.Count > 0 && roomActive && openWhenEnemiesCleared)
-        {
-            for(int i =0; i < enemies.Count; i++)
-            {
-                if(enemies[i] == null)
-                {
-                    enemies.RemoveAt(i);
-                    i--;
-                }
-            }
-        }
 
-        if(enemies.Count == 0)
+    }
+
+    public void OpenDoors()
+    {
+        foreach (GameObject door in doors)
         {
-            foreach (GameObject door in doors)
-            {
-                door.SetActive(false);
-            }
-            closeWhenEntered = false;
+            door.SetActive(false);
         }
+        closeWhenEntered = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
