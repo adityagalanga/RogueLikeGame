@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
@@ -10,11 +11,15 @@ public class UIController : MonoBehaviour
     public Slider healthSlider;
     public Text healthText;
     public GameObject DeathScreen;
+    public GameObject PauseMenu;
 
     public Image fadeScreen;
     public float fadeSpeed;
     public bool fadeToBlack;
     public bool fadeOutBlack;
+
+    public string newGamesScene;
+    public string mainMenuScene;
 
     private void Awake()
     {
@@ -63,5 +68,20 @@ public class UIController : MonoBehaviour
     {
         fadeToBlack = true;
         fadeOutBlack = false;
+    }
+
+    public void NewGame()
+    {
+        SceneManager.LoadScene(newGamesScene);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene(mainMenuScene);
+    }
+
+    public void Resume()
+    {
+        LevelManager.instance.PauseUnpause();
     }
 }

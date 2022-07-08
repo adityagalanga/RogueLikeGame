@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (canMove)
+        if (canMove && !LevelManager.instance.isPaused)
         {
             //move character
             moveInput.x = Input.GetAxisRaw("Horizontal");
