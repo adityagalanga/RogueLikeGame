@@ -526,42 +526,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7708686653939784355, guid: 2500b85a18a38da4f8ea33ada635ed0d, type: 3}
-      propertyPath: potencialCenters.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7708686653939784355, guid: 2500b85a18a38da4f8ea33ada635ed0d, type: 3}
-      propertyPath: potencialCenters.Array.data[0]
-      value: 
-      objectReference: {fileID: 5259592827189354627, guid: cc89a8bfceae8f9439c406f687cccee9, type: 3}
-    - target: {fileID: 7708686653939784355, guid: 2500b85a18a38da4f8ea33ada635ed0d, type: 3}
-      propertyPath: potencialCenters.Array.data[1]
-      value: 
-      objectReference: {fileID: 5250027557434008368, guid: 46eab1ed66edb00409099c75ecb84815, type: 3}
-    - target: {fileID: 7708686653939784355, guid: 2500b85a18a38da4f8ea33ada635ed0d, type: 3}
-      propertyPath: potencialCenters.Array.data[2]
-      value: 
-      objectReference: {fileID: 1391644312701694773, guid: 452f97c4f76334141b44473de43f4719, type: 3}
-    - target: {fileID: 7708686653939784355, guid: 2500b85a18a38da4f8ea33ada635ed0d, type: 3}
-      propertyPath: potencialCenters.Array.data[3]
-      value: 
-      objectReference: {fileID: 5660049505841743695, guid: 591080dad7bedca4488b909fe73dfe9d, type: 3}
-    - target: {fileID: 7708686653939784355, guid: 2500b85a18a38da4f8ea33ada635ed0d, type: 3}
-      propertyPath: potencialCenters.Array.data[4]
-      value: 
-      objectReference: {fileID: 567497151699442283, guid: dbc918cecf107184283e622b68495300, type: 3}
-    - target: {fileID: 7708686653939784355, guid: 2500b85a18a38da4f8ea33ada635ed0d, type: 3}
-      propertyPath: potencialCenters.Array.data[5]
-      value: 
-      objectReference: {fileID: 4771461857927076829, guid: 49193c8bb174b454d83fdc72ec9bdce9, type: 3}
-    - target: {fileID: 7708686653939784355, guid: 2500b85a18a38da4f8ea33ada635ed0d, type: 3}
-      propertyPath: potencialCenters.Array.data[6]
-      value: 
-      objectReference: {fileID: 722117232377654416, guid: 613ff2e044268a644ae0516c7b7bce45, type: 3}
-    - target: {fileID: 7708686653939784355, guid: 2500b85a18a38da4f8ea33ada635ed0d, type: 3}
-      propertyPath: potencialCenters.Array.data[7]
-      value: 
-      objectReference: {fileID: 3489704755527460721, guid: 4b4126ad1f3d1384387f6b04d0a35c3b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2500b85a18a38da4f8ea33ada635ed0d, type: 3}
 --- !u!1 &397078791
@@ -2525,6 +2489,7 @@ MonoBehaviour:
   waitToLoad: 4
   nextLevel: Victory
   isPaused: 0
+  currentCoins: 0
 --- !u!1 &1305618278
 GameObject:
   m_ObjectHideFlags: 0
