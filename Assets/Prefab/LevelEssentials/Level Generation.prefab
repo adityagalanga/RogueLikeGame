@@ -104,5 +104,11 @@ MonoBehaviour:
   centerStart: {fileID: 722117232377654416, guid: 613ff2e044268a644ae0516c7b7bce45, type: 3}
   centerEnd: {fileID: 502508693360131287, guid: 33dc33fd8b9475c41bc1d3a8aaf4322c, type: 3}
   potencialCenters:
-  - {fileID: 3489704755527460721, guid: 4b4126ad1f3d1384387f6b04d0a35c3b, type: 3}
+  - {fileID: 5259592827189354627, guid: cc89a8bfceae8f9439c406f687cccee9, type: 3}
+  - {fileID: 5250027557434008368, guid: 46eab1ed66edb00409099c75ecb84815, type: 3}
+  - {fileID: 1391644312701694773, guid: 452f97c4f76334141b44473de43f4719, type: 3}
+  - {fileID: 5660049505841743695, guid: 591080dad7bedca4488b909fe73dfe9d, type: 3}
+  - {fileID: 567497151699442283, guid: dbc918cecf107184283e622b68495300, type: 3}
+  - {fileID: 4771461857927076829, guid: 49193c8bb174b454d83fdc72ec9bdce9, type: 3}
   - {fileID: 722117232377654416, guid: 613ff2e044268a644ae0516c7b7bce45, type: 3}
+  - {fileID: 3489704755527460721, guid: 4b4126ad1f3d1384387f6b04d0a35c3b, type: 3}

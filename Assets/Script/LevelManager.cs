@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
 
     public bool isPaused;
 
+    public int currentCoins;
+
     private void Awake()
     {
         instance = this;
@@ -54,6 +56,21 @@ public class LevelManager : MonoBehaviour
             UIController.instance.PauseMenu.SetActive(false);
             Time.timeScale = 1;
             isPaused = false;
+        }
+    }
+
+    public void GetCoins(int amount)
+    {
+        currentCoins += amount;
+    }
+
+    public void SpendCoins(int amount)
+    {
+        currentCoins -= amount;
+        
+        if(currentCoins < 0)
+        {
+            currentCoins = 0;
         }
     }
 }
