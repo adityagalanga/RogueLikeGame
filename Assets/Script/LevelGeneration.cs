@@ -7,8 +7,13 @@ public class LevelGeneration : MonoBehaviour
     public GameObject layoutRoom;
     public Color StartColor;
     public Color EndColor;
+    public Color shopColor;
 
     public int distanceToEnd;
+    public bool includeShop;
+    public int minDistanceToShop;
+    public int maxDistanceToShop;
+
     public Transform generatorPoint;
 
     public enum  Direction { up,right,down,left};
@@ -19,6 +24,7 @@ public class LevelGeneration : MonoBehaviour
 
     public LayerMask RoomLayer;
     private GameObject endRoom;
+    private GameObject shopRoom;
 
     private List<GameObject> LayoutRoomObjects = new List<GameObject>();
     private List<GameObject> GeneratedOutline = new List<GameObject>();
@@ -26,6 +32,8 @@ public class LevelGeneration : MonoBehaviour
 
     public RoomCenter centerStart;
     public RoomCenter centerEnd;
+    public RoomCenter centerShop;
+
     public RoomCenter[] potencialCenters;
 
     void Start()
@@ -55,6 +63,15 @@ public class LevelGeneration : MonoBehaviour
                 MoveGenerationPoint();
             }
         }
+
+        if (includeShop)
+        {
+            int shopSelector = Random.Range(minDistanceToShop, maxDistanceToShop+1);
+            shopRoom = LayoutRoomObjects[shopSelector];
+            LayoutRoomObjects.RemoveAt(shopSelector);
+            shopRoom.GetComponent<SpriteRenderer>().color = shopColor;
+        }
+
         //create room outline
         CreateRoomOutline(Vector3.zero);
         foreach(GameObject room in LayoutRoomObjects)
@@ -63,17 +80,37 @@ public class LevelGeneration : MonoBehaviour
         }
         CreateRoomOutline(endRoom.transform.position);
 
+        if (includeShop) 
+        { 
+            CreateRoomOutline(shopRoom.transform.position); 
+        }
+
         foreach(GameObject outline in GeneratedOutline)
         {
+            bool generate = true;
+
             if(outline.transform.position == Vector3.zero)
             {
                 Instantiate(centerStart, outline.transform.position, transform.rotation).theRoom = outline.GetComponent<Room>();
+                generate = false;
             }
-            else if (outline.transform.position == endRoom.transform.position)
+
+            if (outline.transform.position == endRoom.transform.position)
             {
                 Instantiate(centerEnd, outline.transform.position, transform.rotation).theRoom = outline.GetComponent<Room>();
+                generate = false;
             }
-            else
+
+            if (includeShop)
+            {
+                if (outline.transform.position == shopRoom.transform.position)
+                {
+                    Instantiate(centerShop, outline.transform.position, transform.rotation).theRoom = outline.GetComponent<Room>();
+                    generate = false;
+                }
+            }
+            
+            if(generate)
             {
                 int centerSelect = Random.Range(0, potencialCenters.Length);
                 Instantiate(potencialCenters[centerSelect], outline.transform.position, transform.rotation).theRoom = outline.GetComponent<Room>();

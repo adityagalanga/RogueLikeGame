@@ -160,6 +160,10 @@ MonoBehaviour:
   - {fileID: 802548294836782007, guid: ab44a4bfd33a07e4a8b4ce5f0a733ba0, type: 3}
   hitEffect: {fileID: 4060931833185027728, guid: bfc5d139f8792da48a6dd24175296737, type: 3}
   theBody: {fileID: 6460342408002958245}
+  shouldDropItem: 1
+  itemDropPercent: 25
+  itemsToDrop:
+  - {fileID: 7512623392306598360, guid: 2e679c2587bf0d148a5b9923c22b59bd, type: 3}
 --- !u!61 &6460342408848533487
 BoxCollider2D:
   m_ObjectHideFlags: 0

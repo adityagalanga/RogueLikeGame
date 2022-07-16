@@ -48,6 +48,10 @@ public class EnemyController : MonoBehaviour
     private float fireCounter;
     private Vector3 moveDirection;
 
+    public bool shouldDropItem;
+    public float itemDropPercent;
+    public GameObject[] itemsToDrop;
+
     void Start()
     {
         if (shouldWander)
@@ -160,6 +164,17 @@ public class EnemyController : MonoBehaviour
             int random = Random.Range(0, deathSplatters.Length);
             int rotation = Random.Range(0, 4);
             Instantiate(deathSplatters[random], transform.position, Quaternion.Euler(0,0f,rotation * 90f));
+
+            //dropItems
+            if (shouldDropItem)
+            {
+                float dropChance = Random.Range(0, 100);
+                if (dropChance < itemDropPercent)
+                {
+                    int randomItem = Random.Range(0, itemsToDrop.Length);
+                    Instantiate(itemsToDrop[randomItem], transform.position, transform.rotation);
+                }
+            }
         }
     }
 }

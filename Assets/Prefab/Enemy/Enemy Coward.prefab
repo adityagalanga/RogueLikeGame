@@ -172,6 +172,13 @@ MonoBehaviour:
   shouldWander: 0
   wanderLength: 0
   pauseLength: 0
+  shouldPatrol: 0
+  patrolPoints: []
+  shouldShoot: 1
+  bullet: {fileID: 2253323213624553649, guid: 5bc6427bdfb4718438e87d65cbe48621, type: 3}
+  firePoint: {fileID: 2067072552048346848}
+  fireRate: 1
+  shootRange: 10
   deathSplatters:
   - {fileID: 3568082699068140943, guid: 0634d2cb20a7ab641833dacd2f719b3d, type: 3}
   - {fileID: 7554774191937945920, guid: 85a79cf545ba3e144b9b4463f2c5a0e2, type: 3}
@@ -179,12 +186,11 @@ MonoBehaviour:
   - {fileID: 2679352729407088026, guid: f471bdeeba11e254f816b1ce0dcd5e04, type: 3}
   - {fileID: 802548294836782007, guid: ab44a4bfd33a07e4a8b4ce5f0a733ba0, type: 3}
   hitEffect: {fileID: 4060931833185027728, guid: bfc5d139f8792da48a6dd24175296737, type: 3}
-  shouldShoot: 1
-  bullet: {fileID: 2253323213624553649, guid: 5bc6427bdfb4718438e87d65cbe48621, type: 3}
-  firePoint: {fileID: 2067072552048346848}
-  fireRate: 1
-  shootRange: 10
   theBody: {fileID: 2067072551377778596}
+  shouldDropItem: 1
+  itemDropPercent: 25
+  itemsToDrop:
+  - {fileID: 7512623392306598360, guid: 2e679c2587bf0d148a5b9923c22b59bd, type: 3}
 --- !u!61 &2067072552210244590
 BoxCollider2D:
   m_ObjectHideFlags: 0

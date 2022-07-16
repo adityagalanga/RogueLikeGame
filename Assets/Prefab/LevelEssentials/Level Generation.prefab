@@ -77,7 +77,11 @@ MonoBehaviour:
   layoutRoom: {fileID: 8427237310046904359, guid: 40c280adc3186b142bdc9eba267d4e7f, type: 3}
   StartColor: {r: 0, g: 0.6267071, b: 1, a: 1}
   EndColor: {r: 1, g: 0, b: 0, a: 1}
+  shopColor: {r: 1, g: 0.9906527, b: 0, a: 1}
   distanceToEnd: 10
+  includeShop: 1
+  minDistanceToShop: 3
+  maxDistanceToShop: 7
   generatorPoint: {fileID: 7708686653068191918}
   SelectedDirection: 0
   xOffset: 18
@@ -103,6 +107,7 @@ MonoBehaviour:
     fourway: {fileID: 8167389119065467892, guid: 3318609935ea33d4bbd5e0e680e7f97c, type: 3}
   centerStart: {fileID: 722117232377654416, guid: 613ff2e044268a644ae0516c7b7bce45, type: 3}
   centerEnd: {fileID: 502508693360131287, guid: 33dc33fd8b9475c41bc1d3a8aaf4322c, type: 3}
+  centerShop: {fileID: 240809259489915388, guid: d1be497ed9ec28046bd663c4beb55766, type: 3}
   potencialCenters:
   - {fileID: 5259592827189354627, guid: cc89a8bfceae8f9439c406f687cccee9, type: 3}
   - {fileID: 5250027557434008368, guid: 46eab1ed66edb00409099c75ecb84815, type: 3}

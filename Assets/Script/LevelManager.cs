@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+        UIController.instance.coinText.text = currentCoins.ToString();
     }
 
     // Update is called once per frame
@@ -62,6 +63,7 @@ public class LevelManager : MonoBehaviour
     public void GetCoins(int amount)
     {
         currentCoins += amount;
+        UIController.instance.coinText.text = currentCoins.ToString();
     }
 
     public void SpendCoins(int amount)
@@ -72,5 +74,6 @@ public class LevelManager : MonoBehaviour
         {
             currentCoins = 0;
         }
+        UIController.instance.coinText.text = currentCoins.ToString();
     }
 }

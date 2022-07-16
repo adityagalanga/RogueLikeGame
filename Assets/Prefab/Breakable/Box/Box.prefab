@@ -59,6 +59,7 @@ MonoBehaviour:
   itemsToDrop:
   - {fileID: 6015230950275218364, guid: 6ea9d0004cb9538428930406bcd7447e, type: 3}
   - {fileID: 4111145239493056841, guid: 7c3ce07489a8de64a975a23fb7e3db5a, type: 3}
+  - {fileID: 7512623392306598360, guid: 2e679c2587bf0d148a5b9923c22b59bd, type: 3}
 --- !u!212 &787556941528253120
 SpriteRenderer:
   m_ObjectHideFlags: 0
