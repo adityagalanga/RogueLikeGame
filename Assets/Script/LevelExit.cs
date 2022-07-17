@@ -8,7 +8,6 @@ public class LevelExit : MonoBehaviour
 {
     public string levelToLoad;
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")

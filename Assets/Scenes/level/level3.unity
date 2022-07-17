@@ -587,7 +587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4020313460975329522, guid: e904285da609aca45a7f7a180065c64b, type: 3}
       propertyPath: newGamesScene
-      value: level3
+      value: characterSelect
       objectReference: {fileID: 0}
     - target: {fileID: 4020313460975329525, guid: e904285da609aca45a7f7a180065c64b, type: 3}
       propertyPath: m_Pivot.x

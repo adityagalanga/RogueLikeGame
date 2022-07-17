@@ -7,11 +7,6 @@ public class HealthPickup : MonoBehaviour
     public int healAmount = 1;
 
     public float waitToBeCollected = 0.5f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

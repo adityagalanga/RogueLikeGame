@@ -6,16 +6,9 @@ public class Room : MonoBehaviour
 {
     public bool closeWhenEntered;
     public GameObject MapHider;
-
     public List<GameObject> enemies = new List<GameObject>();
     public GameObject[] doors;
-
     public bool roomActive;
-
-    private void Update()
-    {
-
-    }
 
     public void OpenDoors()
     {
