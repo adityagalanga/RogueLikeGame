@@ -293,6 +293,7 @@ MonoBehaviour:
   target: {fileID: 0}
   mainCamera: {fileID: 519420031}
   bigMapCamera: {fileID: 1953039183}
+  isBossRoom: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -369,7 +370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7997550502497641973, guid: cacdb0d95a3103c4e8e63fa510bc3116, type: 3}
       propertyPath: nextLevel
-      value: Victory
+      value: boss1
       objectReference: {fileID: 0}
     - target: {fileID: 7997550502497641975, guid: cacdb0d95a3103c4e8e63fa510bc3116, type: 3}
       propertyPath: m_RootOrder

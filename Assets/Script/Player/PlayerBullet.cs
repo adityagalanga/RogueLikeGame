@@ -25,7 +25,10 @@ public class PlayerBullet : MonoBehaviour
         {
             collision.GetComponent<EnemyController>().DamageEnemy(damageToGive);
         }
-
+        if(collision.tag == "Boss")
+        {
+            collision.GetComponent<BossController>().TakeDamage(damageToGive);
+        }
         Instantiate(impactEffect, transform.position, transform.rotation);
         AudioManager.instance.PlaySFX(4);
         Destroy(gameObject);
