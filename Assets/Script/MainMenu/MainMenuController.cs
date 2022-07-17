@@ -5,9 +5,17 @@ using UnityEngine.SceneManagement;
 public class MainMenuController : MonoBehaviour
 {
     public string levelToLoad;
+    public GameObject deletePanel;
+
+    public CharacterSelector[] characterToDelete;
 
     void Start()
     {
+        if(PlayerController.instance != null)
+        {
+            Destroy(PlayerController.instance.gameObject);
+        }
+
         Time.timeScale = 1;
     }
 
@@ -25,5 +33,25 @@ public class MainMenuController : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void DeleteSave()
+    {
+        deletePanel.SetActive(true);
+    }
+
+    public void ConfirmDelete()
+    {
+        foreach(CharacterSelector charac in characterToDelete)
+        {
+            PlayerPrefs.SetInt(charac.playerToSpawn.name, 0);
+        }
+
+        deletePanel.SetActive(false);
+    }
+
+    public void CancelDelete()
+    {
+        deletePanel.SetActive(false);
     }
 }

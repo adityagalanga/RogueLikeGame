@@ -5,6 +5,7 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public bool closeWhenEntered;
+    public GameObject MapHider;
 
     public List<GameObject> enemies = new List<GameObject>();
     public GameObject[] doors;
@@ -38,6 +39,7 @@ public class Room : MonoBehaviour
                 }
             }
             roomActive = true;
+            MapHider.SetActive(false);
         }
     }
 

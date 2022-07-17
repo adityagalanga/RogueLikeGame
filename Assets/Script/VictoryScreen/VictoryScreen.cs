@@ -12,6 +12,11 @@ public class VictoryScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerController.instance.gameObject != null)
+        {
+            Destroy(PlayerController.instance.gameObject);
+        }
+
         Time.timeScale = 1;
     }
 

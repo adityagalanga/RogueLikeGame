@@ -9,11 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: d6f0beb0074883f4cbc06e9dae604230
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/level/characterSelect.unity
+    guid: 7dd7c535d7461384a90a062cc598066c
   - enabled: 1
-    path: Assets/Scenes/level2.unity
-    guid: 84e4375a74c825945ac2fd8df9881176
+    path: Assets/Scenes/level/level1.unity
+    guid: d2f418b281c7392488f0c021bc95e8f7
+  - enabled: 1
+    path: Assets/Scenes/level/level2.unity
+    guid: 9a37a362c04b4f84d89da26abf31e273
+  - enabled: 1
+    path: Assets/Scenes/level/level3.unity
+    guid: a49daaa76396dca438653fe777a43719
   - enabled: 1
     path: Assets/Scenes/Victory.unity
     guid: e219095726fcd8e4d9e9be37e2f24182
